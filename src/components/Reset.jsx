@@ -29,7 +29,7 @@ export default function Reset() {
 
       toast.promise(resetPromise, {
         loading: 'Updating...',
-        success: <b>Reset Successfully...!</b>,
+        success: <b>Reset Successfully...!</b>, 
         error : <b>Could not Update!</b>
       });
 
