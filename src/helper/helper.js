@@ -15,7 +15,7 @@ export  async function getUsername(){
 /** authenticate function */
 export async function authenticate(username){
     try {
-        return await axios.post('https://user-authentication-ygos.onrender.com/api/authenticate', { username })
+        return await axios.post('/api/authenticate', { username })
     } catch (error) {
         return { error : "Username doesn't exist...!"}
     }
@@ -24,7 +24,7 @@ export async function authenticate(username){
 /** get User details */
 export async function getUser({ username }){
     try {
-        const { data } = await axios.get(`https://user-authentication-ygos.onrender.com/api/user/${username}`);
+        const { data } = await axios.get(`/api/user/${username}`);
         return { data };
     } catch (error) {
         return { error : "Password doesn't Match...!"}
@@ -34,13 +34,13 @@ export async function getUser({ username }){
 /** register user function */
 export async function registerUser(credentials){
     try {
-        const { data : { msg }, status } = await axios.post(`https://user-authentication-ygos.onrender.com/api/register`, credentials);
+        const { data : { msg }, status } = await axios.post(`/api/register`, credentials);
 
         let { username, email } = credentials;
 
         /** send email */
         if(status === 201){
-            await axios.post('https://user-authentication-ygos.onrender.com/api/registerMail', { username, userEmail : email, text : msg})
+            await axios.post('/api/registerMail', { username, userEmail : email, text : msg})
         }
 
         return Promise.resolve(msg)
@@ -53,7 +53,7 @@ export async function registerUser(credentials){
 export async function verifyPassword({ username, password }){
     try {
         if(username){
-            const { data } = await axios.post('https://user-authentication-ygos.onrender.com/api/login', { username, password })
+            const { data } = await axios.post('/api/login', { username, password })
             return Promise.resolve({ data });
         }
     } catch (error) {
@@ -66,7 +66,7 @@ export async function updateUser(response){
     try {
         
         const token = await localStorage.getItem('token');
-        const data = await axios.put('https://user-authentication-ygos.onrender.com/api/updateuser', response, { headers : { "Authorization" : `Bearer ${token}`}});
+        const data = await axios.put('/api/updateuser', response, { headers : { "Authorization" : `Bearer ${token}`}});
 
         return Promise.resolve({ data })
     } catch (error) {
@@ -83,7 +83,7 @@ export async function generateOTP(username){
         if(status === 201){
             let { data : { email }} = await getUser({ username });
             let text = `Your Password Recovery OTP is ${code}. Verify and recover your password.`;
-            await axios.post('https://user-authentication-ygos.onrender.com/api/registerMail', { username, userEmail: email, text, subject : "Password Recovery OTP"})
+            await axios.post('/api/registerMail', { username, userEmail: email, text, subject : "Password Recovery OTP"})
         }
         return Promise.resolve(code);
     } catch (error) {
@@ -94,7 +94,7 @@ export async function generateOTP(username){
 /** verify OTP */
 export async function verifyOTP({ username, code }){
     try {
-       const { data, status } = await axios.get('https://user-authentication-ygos.onrender.com/api/verifyOTP', { params : { username, code }})
+       const { data, status } = await axios.get('/api/verifyOTP', { params : { username, code }})
        return { data, status }
     } catch (error) {
         return Promise.reject(error);
@@ -104,7 +104,7 @@ export async function verifyOTP({ username, code }){
 /** reset password */
 export async function resetPassword({ username, password }){
     try {
-        const { data, status } = await axios.put('https://user-authentication-ygos.onrender.com/api/resetPassword', { username, password });
+        const { data, status } = await axios.put('/api/resetPassword', { username, password });
         return Promise.resolve({ data, status})
     } catch (error) {
         return Promise.reject({ error })

@@ -13,7 +13,7 @@ export default function Password() {
 
   let navigate=useNavigate();
   const { username } = useAuthStore((store) => store.auth);
-  let [{ isLoading, apiData, serverError }] = useFetch(`/api/user/${username}`);
+  let [{ isLoading, apiData, serverError }] = useFetch(`/user/${username}`);
   //Formik for form validation:
   let formik = useFormik({
     initialValues: {
