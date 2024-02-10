@@ -11,6 +11,8 @@ import PageNotFound from "./components/PageNotFound";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import { AuthorizeUser,ProtectRoute } from "./midleware/auth";
+import Home from "./components/DigitalCard/Home";
+import Navbar from "./components/DigitalCard/Navbar";
 let router = createBrowserRouter([
   { 
     path: "/",
@@ -49,6 +51,14 @@ let router = createBrowserRouter([
     path: "/page-not-found",
     element: <PageNotFound />,
   },
+  {
+    path:'/home',
+    element:<Home/>
+  },
+  {
+    path:'/navbar',
+    element:<Navbar/>
+  }
 ]);
 const App = () => {
   return (
