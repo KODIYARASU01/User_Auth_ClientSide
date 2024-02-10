@@ -4,8 +4,6 @@ import { Link, useNavigate } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
 import { useFormik } from "formik";
 import { registerValidate } from "../helper/user";
-
-
 import { registerUser } from "../helper/helper";
 import convertToBase64 from "../helper/convert";
 import avator from "../assets/profile.png";
@@ -13,7 +11,7 @@ import company from "../assets/aristostech.jpg";
 export default function Register() {
   let navigate = useNavigate();
   //Image store state :
-  let [file, setFile] = useState("");
+  let [file, setFile] = useState();
   //Formik for form validation:
   let formik = useFormik({
     initialValues: {
@@ -23,11 +21,10 @@ export default function Register() {
     },
     validateOnBlur: false,
     validateOnChange: false,
-
     validate: registerValidate,
     onSubmit: async (values) => {
       values = await Object.assign(values, { profile: file || "" });
-      let registerPromise = registerUser(values);
+      let registerPromise =  registerUser(values);
       toast.promise(registerPromise, {
         loading: "Creating....",
         success: <b>Registered Successfully...!</b>,
@@ -110,7 +107,7 @@ export default function Register() {
           <div className="form_group">
             <input
               type="text"
-              placeholder="username"
+              placeholder="Username"
               id="username"
               name="username"
               {...formik.getFieldProps("username")}
