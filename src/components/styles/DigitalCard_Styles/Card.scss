@@ -43,7 +43,7 @@
     // flex-direction: column;
     margin: auto;
     width: 30%;
-    min-height: 900vh;
+    min-height: 1040vh;
 
     background-color: rgba(255, 255, 255, 0.33);
     backdrop-filter: blur(3px);
@@ -172,7 +172,7 @@
         padding: 1rem 10px;
 
         margin: 2rem auto;
-        background: linear-gradient(270deg, #c6ea8d, #fe90af);
+        background: linear-gradient( #BFF098, #6FD6FF);
         border-radius: 10px;
         display: flex;
         align-items: flex-start;
@@ -589,7 +589,6 @@
       padding-bottom: 2rem;
       border-radius: 10px;
       border-bottom: 3px solid rgb(158, 157, 160);
-   
 
       .payment_title {
         display: flex;
@@ -662,7 +661,10 @@
           }
         }
         .row_1,
-        .row_2,.row_3,.row_4,.row_5 {
+        .row_2,
+        .row_3,
+        .row_4,
+        .row_5 {
           display: flex;
           align-items: flex-start;
           justify-content: flex-start;
@@ -688,12 +690,12 @@
       }
     }
 
-    .gallery{
+    .gallery {
       width: 100%;
       padding: 10px;
-      margin-bottom: 1rem;
+      padding-bottom: 3rem;
       border-radius: 10px;
-      // border-bottom: 3px solid rgb(158, 157, 160);
+      border-bottom: 3px solid rgb(158, 157, 160);
 
       .gallery_title {
         display: flex;
@@ -724,21 +726,282 @@
           border-radius: 4px;
         }
       }
-      .gallery_container{
+      .gallery_container {
         display: flex;
         align-items: center;
         justify-content: center;
         flex-direction: column;
         gap: 1rem;
 
-        img{
-          box-shadow: 0px 4px 5px rgba(0,0,0,0.5);
+        img {
+          box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.5);
           transition: scale 0.5s ease-in-out;
-          &:hover{
-            scale:1.05;
+          &:hover {
+            scale: 1.05;
             transition: scale 0.5s ease-in-out;
           }
         }
+      }
+    }
+    .feedback {
+      width: 100%;
+      padding: 10px;
+      padding-bottom: 2rem;
+      border-radius: 10px;
+      border-bottom: 3px solid rgb(158, 157, 160);
+
+      .feedback_title {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 10px;
+        margin: 1rem;
+        position: relative;
+
+        img {
+          width: 20px;
+          height: 20px;
+        }
+        h4 {
+          font-size: 0.9rem;
+          font-weight: 600;
+          letter-spacing: 1px;
+          text-transform: uppercase;
+        }
+
+        &::after {
+          content: "";
+          width: 30%;
+          height: 3px;
+          background-color: gray;
+          position: absolute;
+          top: 110%;
+          border-radius: 4px;
+        }
+      }
+      .feedback_container {
+        margin: 1rem auto;
+
+        .feedback_heading {
+          padding: 10px;
+
+          h5 {
+            color: grey;
+            font-weight: 600;
+            font-size: 0.8rem;
+          }
+        }
+        form {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+          margin: auto;
+
+          .form_group {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            position: relative;
+            margin: 10px auto;
+
+            input[type="text"] {
+              width: 90%;
+              padding: 10px 3rem;
+              outline: none;
+              background: transparent;
+              border-bottom: 1px solid gray;
+              caret-color: orangered;
+              &::placeholder {
+                font-size: 0.8rem;
+              }
+              &:focus {
+                border-bottom: 1px solid royalblue;
+              }
+            }
+            img {
+              position: absolute;
+              top: 5%;
+              left: 30px;
+              width: 30px;
+              height: 30px;
+            }
+            textarea {
+              width: 90%;
+              outline: none;
+              padding: 10px 3rem;
+              // background-color: transparent;
+              caret-color: orangered;
+              &::placeholder {
+                font-size: 0.8rem;
+              }
+              &:focus {
+                border: 1px solid royalblue;
+              }
+            }
+          }
+          .form_actions {
+            margin: 1rem auto;
+
+            button {
+              background-color: royalblue;
+              padding: 10px 2rem;
+              font-weight: bold;
+              letter-spacing: 1px;
+              color: #ffffff;
+              transition: all 0.4s ease-in;
+
+              &:hover {
+                background-color: tomato;
+                transition: all 0.4s ease-in;
+              }
+            }
+          }
+        }
+      }
+    }
+    .enquiry {
+      width: 100%;
+      padding: 10px;
+      padding-bottom: 2rem;
+      border-radius: 10px;
+      // border-bottom: 3px solid rgb(158, 157, 160);
+
+      .enquiry_title {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 10px;
+        margin: 1rem;
+        position: relative;
+
+        img {
+          width: 20px;
+          height: 20px;
+        }
+        h4 {
+          font-size: 0.9rem;
+          font-weight: 600;
+          letter-spacing: 1px;
+          text-transform: uppercase;
+        }
+
+        &::after {
+          content: "";
+          width: 40%;
+          height: 3px;
+          background-color: gray;
+          position: absolute;
+          top: 110%;
+          border-radius: 4px;
+        }
+      }
+      .equiry_container {
+        margin: 1rem auto;
+
+        .enquiry_heading {
+          padding: 10px;
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+          gap: 14px;
+
+          h5 {
+            color: grey;
+            font-weight: 600;
+            font-size: 0.8rem;
+          }
+          img{
+          width: 25px;
+          height: 25px;
+          }
+        }
+        form {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+          margin: auto;
+
+          .form_group {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            position: relative;
+            margin: 10px auto;
+
+            input {
+              width: 90%;
+              padding: 10px 3rem;
+              outline: none;
+              background: transparent;
+              border-bottom: 1px solid gray;
+              caret-color: orangered;
+              &::placeholder {
+                font-size: 0.8rem;
+              }
+              &:focus {
+                border-bottom: 1px solid royalblue;
+              }
+            }
+            img {
+              position: absolute;
+              top: 5%;
+              left: 30px;
+              width: 30px;
+              height: 30px;
+            }
+            textarea {
+              width: 90%;
+              outline: none;
+              padding: 10px 3rem;
+              // background-color: transparent;
+              caret-color: orangered;
+              &::placeholder {
+                font-size: 0.8rem;
+              }
+              &:focus {
+                border: 1px solid royalblue;
+              }
+            }
+          }
+          .form_actions {
+            margin: 1rem auto;
+
+            button {
+              background-color: royalblue;
+              padding: 10px 2rem;
+              font-weight: bold;
+              letter-spacing: 1px;
+              color: #ffffff;
+              transition: all 0.4s ease-in;
+
+              &:hover {
+                background-color: tomato;
+                transition: all 0.4s ease-in;
+              }
+            }
+          }
+        }
+      }
+    }
+    .copyright{
+      width: 100%;
+      padding: 10px;
+      padding-bottom: 2rem;
+      border-radius: 10px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      p{
+        font-size: 0.8rem;
+        color: grey;
       }
     }
     @media screen and (max-width: 900px) {

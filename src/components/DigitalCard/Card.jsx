@@ -645,18 +645,74 @@ export default function Home() {
               })}
             </div>
           </div>
-          {/* //Feedback */}
+          {/* //Feedback page*/}
 
           <div className="feedback">
             <div className="feedback_title">
-            <h4>Feedback</h4>
+              <h4>Feedback</h4>
               <img
                 width="16"
                 height="16"
-                src="https://img.icons8.com/office/16/ios-photos.png"
-                alt="ios-photos"
+                src="https://img.icons8.com/office/16/popular-topic.png"
+                alt="popular-topic"
               />
             </div>
+            <div className="feedback_container">
+              <div className="feedback_heading">
+                <h5>Give Feedback Something About Us </h5>
+              </div>
+              <form action="">
+                <div className="form_group">
+                  <input type="text" placeholder="Enter Full Name" name="name" id="name" />
+                  <img width="64" height="64" src="https://img.icons8.com/nolan/64/user.png" alt="user"/>
+                </div>
+                <div className="form_group">
+                <textarea name="msg" id="msg" cols="30" rows="4" placeholder="Tell something about us !"></textarea>
+                <img width="48" height="48" src="https://img.icons8.com/fluency/48/edit-text-file.png" alt="edit-text-file"/>
+                </div>
+                <div className="form_actions">
+                  <button type="submit">Send Feedback</button>
+                </div>
+              </form>
+            </div>
+          </div>
+          {/* //Enquiry page */}
+
+          <div className="enquiry">
+            <div className="enquiry_title">
+            <h4>Enquiry Form</h4>
+            <img width="64" height="64" src="https://img.icons8.com/nolan/64/questions.png" alt="questions"/>
+            </div>
+            <div className="equiry_container">
+              <div className="enquiry_heading">
+                <h5> Be in Touch </h5>
+                <img width="48" height="48" src="https://img.icons8.com/fluency/48/group-background-selected.png" alt="group-background-selected"/>
+              </div>
+              <form action="">
+                <div className="form_group">
+                  <input type="text" placeholder="Enter Full Name" name="name" id="name" />
+                  <img width="64" height="64" src="https://img.icons8.com/nolan/64/user.png" alt="user"/>
+                </div>
+                <div className="form_group">
+                  <input type="email" placeholder="Enter your email" name="email" id="email" />
+                  <img width="64" height="64" src="https://img.icons8.com/nolan/64/new-post.png" alt="new-post"/>
+                </div>
+                <div className="form_group">
+                  <input type="tel" placeholder="Enter your mobile Number" name="tel" id="tel" />
+                  <img width="64" height="64" src="https://img.icons8.com/nolan/64/phone-disconnected.png" alt="phone-disconnected"/>
+                </div>
+                <div className="form_group">
+                <textarea name="msg" id="msg" cols="30" rows="4" placeholder="Tell something about us !"></textarea>
+                <img width="48" height="48" src="https://img.icons8.com/fluency/48/edit-text-file.png" alt="edit-text-file"/>
+                </div>
+                <div className="form_actions">
+                  <button type="submit">Send Message</button>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div className="copyright">
+            <p>Copyright Reserved &copy; 2024 DigitalCard.com</p>
           </div>
         </div>
       </div>
