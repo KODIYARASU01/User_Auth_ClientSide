@@ -77,6 +77,7 @@ export default function Register() {
             <div className="form_group">
               <label htmlFor="profile">
                 <img src={file || avator} alt="avatar" id="profile_image" />
+                <img id="camera" width="64" height="64" src="https://img.icons8.com/arcade/64/camera--v2.png" alt="camera--v2"/>
               </label>
               <input
                 onChange={onUpload}

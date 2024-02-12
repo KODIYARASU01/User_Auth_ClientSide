@@ -11,7 +11,7 @@ import PageNotFound from "./components/PageNotFound";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import { AuthorizeUser,ProtectRoute } from "./midleware/auth";
-import Home from "./components/DigitalCard/Home";
+import Card from "./components/DigitalCard/Card";
 import Navbar from "./components/DigitalCard/Navbar";
 let router = createBrowserRouter([
   { 
@@ -53,7 +53,7 @@ let router = createBrowserRouter([
   },
   {
     path:'/home',
-    element:<Home/>
+    element:<Card/>
   },
   {
     path:'/navbar',
