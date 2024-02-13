@@ -530,7 +530,7 @@ export default function Home() {
                 </div>
                 <div className="explaination">
                   Card shows the unique visitor count who viewed your card,
-                  Isn't it cool!!
+                  Is not it cool!!
                 </div>
               </div>
             </div>
