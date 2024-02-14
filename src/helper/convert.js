@@ -1,6 +1,6 @@
 //Image into base64 formate:
 
-export default function convertToBase64(file) {
+ export default function convertToBase64(file) {
   return new Promise((resolve, reject) => {
     const fileReader = new FileReader();
 
@@ -15,3 +15,6 @@ export default function convertToBase64(file) {
     };
   });
 }
+
+
+

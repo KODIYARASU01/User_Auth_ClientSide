@@ -13,6 +13,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { AuthorizeUser,ProtectRoute } from "./midleware/auth";
 import Card from "./components/DigitalCard/Card";
 import Navbar from "./components/DigitalCard/Navbar";
+import Admin from "./components/Admin/Admin";
 let router = createBrowserRouter([
   { 
     path: "/",
@@ -54,6 +55,10 @@ let router = createBrowserRouter([
   {
     path:'/home',
     element:<Card/>
+  },
+  {
+    path:'/admin',
+    element:<Admin/>
   },
   {
     path:'/navbar',

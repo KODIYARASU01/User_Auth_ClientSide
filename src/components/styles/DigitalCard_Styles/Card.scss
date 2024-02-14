@@ -833,6 +833,7 @@
               outline: none;
               padding: 10px 3rem;
               // background-color: transparent;
+              border: 1px solid gray;
               caret-color: orangered;
               &::placeholder {
                 font-size: 0.8rem;
@@ -958,6 +959,7 @@
             textarea {
               width: 90%;
               outline: none;
+              border: 1px solid gray;
               padding: 10px 3rem;
               // background-color: transparent;
               caret-color: orangered;
