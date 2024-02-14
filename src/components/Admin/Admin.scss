@@ -360,8 +360,8 @@
 
       .box_left_home_form_session {
         width: 100%;
-margin: 0.4rem auto;
-    .form_title {
+        margin: 0.4rem auto;
+        .form_title {
           width: 80%;
           display: flex;
           align-items: center;
@@ -372,14 +372,31 @@ margin: 0.4rem auto;
           padding: 6px 2rem;
           background-color: royalblue;
           transition: all 0.5s ease-in-out;
-          
+
           h5 {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            width: 60%;
             font-weight: 550;
             letter-spacing: 1px;
             color: rgb(255, 255, 255) !important;
+
+            @media screen and (max-width: 900px) {
+              width: 80%;
+              font-size: 0.7rem;
+           
+            }
           }
           img {
+            width: 20%;
             width: 30px;
+
+            @media screen and (max-width: 900px) {
+              width: 20%;
+              width: 30px;
+
+            }
           }
 
           &:hover {
@@ -388,8 +405,9 @@ margin: 0.4rem auto;
             transition: all 0.5s ease-in-out;
           }
 
-          @media screen and (max-width:900px){
+          @media screen and (max-width: 900px) {
             width: 100%;
+            padding: 5px 0.2rem;
           }
         }
         .home_form {
@@ -423,16 +441,20 @@ margin: 0.4rem auto;
               .upload {
                 position: absolute;
                 top: 20%;
-                right: 4%;
+                left: 2%;
 
                 img {
-                  width: 30px;
+                  width: 20px;
                 }
               }
               label {
                 letter-spacing: 1px;
                 font-weight: 600;
                 font-size: 0.7rem;
+
+                @media screen and (max-width:900px){
+                  font-size: 0.5rem !important;
+                }
               }
 
               // .label{
@@ -512,7 +534,7 @@ margin: 0.4rem auto;
       }
       .box_left_about_form_session {
         width: 100%;
-margin: 0.4rem auto;
+        margin: 0.4rem auto;
         .form_title {
           width: 80%;
           display: flex;
@@ -524,14 +546,31 @@ margin: 0.4rem auto;
           padding: 6px 2rem;
           background-color: royalblue;
           transition: all 0.5s ease-in-out;
-          
+
           h5 {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            width: 60%;
             font-weight: 550;
             letter-spacing: 1px;
             color: rgb(255, 255, 255) !important;
+
+            @media screen and (max-width: 900px) {
+              width: 80%;
+              font-size: 0.7rem;
+           
+            }
           }
           img {
+            width: 20%;
             width: 30px;
+
+            @media screen and (max-width: 900px) {
+              width: 20%;
+              width: 30px;
+
+            }
           }
 
           &:hover {
@@ -540,8 +579,9 @@ margin: 0.4rem auto;
             transition: all 0.5s ease-in-out;
           }
 
-          @media screen and (max-width:900px){
+          @media screen and (max-width: 900px) {
             width: 100%;
+            padding: 5px 0.2rem;
           }
         }
         .home_form {
@@ -586,6 +626,10 @@ margin: 0.4rem auto;
                 letter-spacing: 1px;
                 font-weight: 600;
                 font-size: 0.7rem;
+
+                @media screen and (max-width:900px){
+                  font-size: 0.5rem !important;
+                }
               }
 
               // .label{
@@ -614,16 +658,16 @@ margin: 0.4rem auto;
               color: darkgray;
             }
 
-            .our_specialities{
+            .our_specialities {
               width: 100% !important;
               display: flex;
               align-items: flex-start;
               justify-content: center;
               flex-direction: column;
 
-              .form_group{
+              .form_group {
                 width: 100%;
-                .input{
+                .input {
                   padding: 5px 0.5rem;
                   width: 100% !important;
                   outline: none;
@@ -631,7 +675,558 @@ margin: 0.4rem auto;
                   border-bottom: 1px solid gray;
                 }
               }
+            }
+          }
+
+          &::-webkit-scrollbar {
+            width: 0%;
+          }
+          @media screen and (max-width: 900px) {
+            width: 100% !important;
+            padding: 1rem;
+          }
+        }
+      }
+      .box_left_service_form_session {
+        width: 100%;
+        margin: 0.4rem auto;
+        .form_title {
+          width: 80%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 10px;
+          margin: auto;
+          cursor: pointer;
+          padding: 6px 2rem;
+          background-color: royalblue;
+          transition: all 0.5s ease-in-out;
+
+          h5 {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            width: 60%;
+            font-weight: 550;
+            letter-spacing: 1px;
+            color: rgb(255, 255, 255) !important;
+
+            @media screen and (max-width: 900px) {
+              width: 80%;
+              font-size: 0.7rem;
            
+            }
+          }
+          img {
+            width: 20%;
+            width: 30px;
+
+            @media screen and (max-width: 900px) {
+              width: 20%;
+              width: 30px;
+
+            }
+          }
+
+          &:hover {
+            background-color: rgb(29, 81, 240);
+            box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.5);
+            transition: all 0.5s ease-in-out;
+          }
+
+          @media screen and (max-width: 900px) {
+            width: 100%;
+            padding: 5px 0.2rem;
+          }
+        }
+        .home_form {
+          position: relative;
+          margin: auto;
+          background-color: white;
+          box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.5);
+          width: 80%;
+          height: 60vh !important;
+          overflow-y: auto;
+          padding: 0rem 2rem;
+
+          .profile_heading {
+            display: block !important;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: darkgray;
+          }
+          form {
+            width: 100% !important;
+            margin: 1rem auto;
+
+            .form_group {
+              position: relative;
+              display: flex;
+              align-items: flex-start;
+              justify-content: center;
+              flex-direction: column;
+              gap: 10px;
+              margin: 0.5rem 0px;
+
+              .upload {
+                position: absolute;
+                top: 50%;
+                left: 2%;
+
+                img {
+                  width: 20px;
+                }
+              }
+              label {
+                letter-spacing: 1px;
+                font-weight: 600;
+                font-size: 0.7rem;
+
+                @media screen and (max-width:900px){
+                  font-size: 0.5rem !important;
+                }
+              }
+
+              // .label{
+              //   position: absolute;
+              //   top: 25%;
+              //   left: 10%;
+              // }
+              input {
+                width: 100%;
+                border: 1px solid gray;
+                padding: 7px 2rem;
+                outline: none;
+                caret-color: royalblue;
+                &::placeholder {
+                  font-size: 0.7rem;
+                  letter-spacing: 1px;
+                }
+              }
+
+              textarea {
+                width: 100%;
+                outline: none;
+                border: 1px solid gray;
+                padding: 10px 1rem;
+                // background-color: transparent;
+                caret-color: orangered;
+                &::placeholder {
+                  font-size: 0.8rem;
+                }
+                &:focus {
+                  border: 1px solid royalblue;
+                }
+              }
+            }
+
+            .form_submit {
+              width: 100%;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              button {
+                width: 40%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                outline: none;
+                background-color: rgb(120, 236, 85);
+                color: #000000;
+                letter-spacing: 1px;
+                font-weight:600;
+                padding: 5px 10px;
+                transition: all 0.4s ease-in-out;
+
+                &:hover {
+                  background-color: royalblue;
+                  color: #ffffff;
+                  box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.4);
+                  transition: all 0.4s ease-in-out;
+                }
+              }
+            }
+
+            .social_media_heading,
+            .company_address_heading {
+              display: block !important;
+              font-size: 0.8rem;
+              font-weight: 500;
+              color: darkgray;
+            }
+          }
+
+          &::-webkit-scrollbar {
+            width: 0%;
+          }
+          @media screen and (max-width: 900px) {
+            width: 100% !important;
+            padding: 1rem;
+          }
+        }
+      }
+      .box_left_payment_form_session {
+        width: 100%;
+        margin: 0.4rem auto;
+     .form_title {
+          width: 80%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 10px;
+          margin: auto;
+          cursor: pointer;
+          padding: 6px 2rem;
+          background-color: royalblue;
+          transition: all 0.5s ease-in-out;
+
+          h5 {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            width: 60%;
+            font-weight: 550;
+            letter-spacing: 1px;
+            color: rgb(255, 255, 255) !important;
+
+            @media screen and (max-width: 900px) {
+              width: 80%;
+              font-size: 0.7rem;
+           
+            }
+          }
+          img {
+            width: 20%;
+            width: 30px;
+
+            @media screen and (max-width: 900px) {
+              width: 20%;
+              width: 30px;
+
+            }
+          }
+
+          &:hover {
+            background-color: rgb(29, 81, 240);
+            box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.5);
+            transition: all 0.5s ease-in-out;
+          }
+
+          @media screen and (max-width: 900px) {
+            width: 100%;
+            padding: 5px 0.2rem;
+          }
+        }
+        .payment_form {
+          position: relative;
+          margin: auto;
+          background-color: white;
+          box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.5);
+          width: 80%;
+          height: 55vh !important;
+          overflow-y: auto;
+          padding: 0rem 2rem;
+
+          .profile_heading {
+            display: block !important;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: darkgray;
+          }
+          form {
+            margin: 1rem auto;
+
+            .form_group {
+              position: relative;
+              display: flex;
+              align-items: flex-start;
+              justify-content: center;
+              flex-direction: column;
+              gap: 10px;
+              margin: 0.5rem 0px;
+
+              .upload {
+                position: absolute;
+                top: 20%;
+                left: 2%;
+
+                img {
+                  width: 20px;
+                }
+              }
+              label {
+                letter-spacing: 1px;
+                font-weight: 600;
+                font-size: 0.7rem;
+
+                @media screen and (max-width:900px){
+                  font-size: 0.5rem !important;
+                }
+              }
+
+              // .label{
+              //   position: absolute;
+              //   top: 25%;
+              //   left: 10%;
+              // }
+              input {
+                width: 100%;
+                border: 1px solid gray;
+                padding: 7px 2rem;
+                outline: none;
+                caret-color: royalblue;
+                &::placeholder {
+                  font-size: 0.7rem;
+                  letter-spacing: 1px;
+                }
+              }
+            }
+
+      
+            .social_media_input {
+              display: grid;
+              grid-template-columns: 1fr 1fr;
+              // grid-row-gap: 10px;
+              grid-column-gap: 10px;
+
+              .form_group {
+                position: relative;
+                display: flex;
+                align-items: flex-start;
+                justify-content: center;
+                flex-direction: column;
+                gap: 10px;
+                margin: 0.5rem 0px;
+
+                label {
+                  letter-spacing: 1px;
+                  font-weight: 600;
+                  font-size: 0.7rem;
+                }
+
+                // .label{
+                //   position: absolute;
+                //   top: 25%;
+                //   left: 10%;
+                // }
+                input {
+                  width: 100%;
+                  border: 1px solid gray;
+                  padding: 7px 2rem;
+                  outline: none;
+                  caret-color: royalblue;
+                  &::placeholder {
+                    font-size: 0.7rem;
+                    letter-spacing: 1px;
+                  }
+
+                  @media screen and (max-width:900px){
+                    padding: 5px 0.4rem;
+                  }
+                }
+              }
+    
+            }
+            .form_submit {
+              width: 100%;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              button {
+                width: 60%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                outline: none;
+                background-color: rgb(120, 236, 85);
+                color: #000000;
+                letter-spacing: 1px;
+                font-weight:600;
+                padding: 5px 10px;
+                transition: all 0.4s ease-in-out;
+
+                &:hover {
+                  background-color: royalblue;
+                  color: #ffffff;
+                  box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.4);
+                  transition: all 0.4s ease-in-out;
+                }
+              }
+            }
+          }
+
+          &::-webkit-scrollbar {
+            width: 0%;
+          }
+          @media screen and (max-width: 900px) {
+            width: 100% !important;
+            padding: 0rem 0.7rem !important;
+          }
+        }
+      }
+      .box_left_gallery_form_session {
+        width: 100%;
+        margin: 0.4rem auto;
+   .form_title {
+          width: 80%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 10px;
+          margin: auto;
+          cursor: pointer;
+          padding: 6px 2rem;
+          background-color: royalblue;
+          transition: all 0.5s ease-in-out;
+
+          h5 {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            width: 60%;
+            font-weight: 550;
+            letter-spacing: 1px;
+            color: rgb(255, 255, 255) !important;
+
+            @media screen and (max-width: 900px) {
+              width: 80%;
+              font-size: 0.7rem;
+           
+            }
+          }
+          img {
+            width: 20%;
+            width: 30px;
+
+            @media screen and (max-width: 900px) {
+              width: 20%;
+              width: 30px;
+
+            }
+          }
+
+          &:hover {
+            background-color: rgb(29, 81, 240);
+            box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.5);
+            transition: all 0.5s ease-in-out;
+          }
+
+          @media screen and (max-width: 900px) {
+            width: 100%;
+            padding: 5px 0.2rem;
+          }
+        }
+        .home_form {
+          position: relative;
+          margin: auto;
+          background-color: white;
+          box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.5);
+          width: 80%;
+          height: 60vh !important;
+          overflow-y: auto;
+          padding: 0rem 2rem;
+
+          .profile_heading {
+            display: block !important;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: darkgray;
+          }
+          form {
+            width: 100% !important;
+            margin: 1rem auto;
+
+            .form_group {
+              position: relative;
+              display: flex;
+              align-items: flex-start;
+              justify-content: center;
+              flex-direction: column;
+              gap: 10px;
+              margin: 0.5rem 0px;
+
+              .upload {
+                position: absolute;
+                top: 50%;
+                left: 2%;
+
+                img {
+                  width: 20px;
+                }
+              }
+              label {
+                letter-spacing: 1px;
+                font-weight: 600;
+                font-size: 0.7rem;
+              }
+
+              // .label{
+              //   position: absolute;
+              //   top: 25%;
+              //   left: 10%;
+              // }
+              input {
+                width: 100%;
+                border: 1px solid gray;
+                padding: 7px 2rem;
+                outline: none;
+                caret-color: royalblue;
+                &::placeholder {
+                  font-size: 0.7rem;
+                  letter-spacing: 1px;
+                }
+              }
+
+              textarea {
+                width: 100%;
+                outline: none;
+                border: 1px solid gray;
+                padding: 10px 1rem;
+                // background-color: transparent;
+                caret-color: orangered;
+                &::placeholder {
+                  font-size: 0.8rem;
+                }
+                &:focus {
+                  border: 1px solid royalblue;
+                }
+              }
+            }
+
+            .form_submit {
+              width: 100%;
+              margin: 2rem auto;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              button {
+                width: 40%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                outline: none;
+                background-color: rgb(120, 236, 85);
+                color: #000000;
+                letter-spacing: 1px;
+                font-weight:600;
+                padding: 5px 10px;
+                transition: all 0.4s ease-in-out;
+
+                &:hover {
+                  background-color: royalblue;
+                  color: #ffffff;
+                  box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.4);
+                  transition: all 0.4s ease-in-out;
+                }
+              }
+            }
+
+            .social_media_heading,
+            .company_address_heading {
+              display: block !important;
+              font-size: 0.8rem;
+              font-weight: 500;
+              color: darkgray;
             }
           }
 
@@ -1720,24 +2315,23 @@ margin: 0.4rem auto;
   }
 }
 
+//Home Form Show
 
-//Home Form Show 
-
-#homeFormShow{
+#homeFormShow {
   position: relative;
   margin: auto;
   background-color: white;
   box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.5);
   width: 80%;
-  height: 60vh ;
+  height: 60vh;
   overflow-y: auto;
   padding: 0rem 2rem;
   transition: all 0.5s linear;
-};
+}
 
-//Home Form Hide 
+//Home Form Hide
 
-#homeFormHide{
+#homeFormHide {
   position: relative;
   margin: auto;
   background-color: white;
@@ -1747,9 +2341,9 @@ margin: 0.4rem auto;
   overflow-y: auto;
   padding: 0rem 2rem;
   transition: all 0.5s linear;
-};
+}
 
-#aboutFormShow{
+#aboutFormShow {
   position: relative;
   margin: auto;
   background-color: white;
@@ -1759,8 +2353,8 @@ margin: 0.4rem auto;
   overflow-y: auto;
   padding: 0rem 2rem;
   transition: all 0.5s linear;
-};
-#aboutFormHide{
+}
+#aboutFormHide {
   position: relative;
   margin: auto;
   background-color: white;
@@ -1770,4 +2364,34 @@ margin: 0.4rem auto;
   overflow-y: auto;
   padding: 0rem 2rem;
   transition: all 0.5s linear;
+}
+#serviceFormShow,#paymentFormShow,#galleryFormShow {
+  position: relative;
+  margin: auto;
+  background-color: white;
+  box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.5);
+  width: 80%;
+  height: 60vh !important;
+  overflow-y: auto;
+  padding: 0rem 2rem;
+  transition: all 0.5s linear;
+}
+#serviceFormHide,#paymentFormHide,#galleryFormHide {
+  position: relative;
+  margin: auto;
+  background-color: white;
+  box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.5);
+  width: 80%;
+  height: 0vh !important;
+  overflow-y: auto;
+  padding: 0rem 2rem;
+  transition: all 0.5s linear;
+}
+
+
+#paymentFormShow{
+  height: 55vh !important;
 };
+#galleryFormShow{
+  height: 45vh !important;
+}

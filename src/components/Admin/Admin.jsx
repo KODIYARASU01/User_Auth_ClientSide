@@ -66,6 +66,9 @@ const Admin = () => {
   let [show, setShow] = useState(true);
   let [homeFormShow, setHomeFormShow] = useState(false);
   let [aboutFormShow, setAboutFormShow] = useState(false);
+  let [servicesFormShow, setServicesFormShow] = useState(false);
+  let [paymentFormShow, setPaymentFormShow] = useState(false);
+  let [galleryFormShow, setGalleryFormShow] = useState(false);
   let navigate = useNavigate();
   //Image store state :
 
@@ -323,7 +326,13 @@ const Admin = () => {
             <div className="box_left_home_form_session">
               <div
                 className="form_title"
-                onClick={() => {setHomeFormShow(!homeFormShow),setAboutFormShow(false)}}
+                onClick={() => {
+                  setHomeFormShow(!homeFormShow),
+                  setGalleryFormShow(false),
+                    setAboutFormShow(false),
+                    setServicesFormShow(false),
+                    setPaymentFormShow(false);
+                }}
               >
                 <h5>Home Form Session</h5>
                 {homeFormShow ? (
@@ -470,7 +479,13 @@ const Admin = () => {
             <div className="box_left_about_form_session">
               <div
                 className="form_title"
-                onClick={() => {setAboutFormShow(!aboutFormShow),setHomeFormShow(false)}}
+                onClick={() => {
+                  setAboutFormShow(!aboutFormShow),
+                  setGalleryFormShow(false),
+                    setHomeFormShow(false),
+                    setServicesFormShow(false),
+                    setPaymentFormShow(false);
+                }}
               >
                 <h5>About Form Session</h5>
                 {aboutFormShow ? (
@@ -589,6 +604,272 @@ const Admin = () => {
                 </form>
               </div>
             </div>
+            <div className="box_left_service_form_session">
+              <div
+                className="form_title"
+                onClick={() => {
+                  setServicesFormShow(!servicesFormShow),
+                  setGalleryFormShow(false),
+                    setHomeFormShow(false),
+                    setAboutFormShow(false),
+                    setPaymentFormShow(false);
+                }}
+              >
+                <h5>Product & Services Session</h5>
+                {servicesFormShow ? (
+                  <img
+                    width="64"
+                    height="64"
+                    src="https://img.icons8.com/arcade/64/down-squared.png"
+                    alt="down-squared"
+                  />
+                ) : (
+                  <img
+                    width="64"
+                    height="64"
+                    src="https://img.icons8.com/arcade/64/right-squared.png"
+                    alt="right-squared"
+                  />
+                )}
+              </div>
+
+              <div
+                className="home_form"
+                id={servicesFormShow ? "serviceFormShow" : "serviceFormHide"}
+              >
+                <form>
+                  <div className="profile_heading">Our Services</div>
+                  <div className="form_group">
+                    <label className="label" htmlFor="service">
+                      Service Heading
+                    </label>
+                    <input type="text" id="service" name="service" />
+                  </div>
+                  <div className="form_group">
+                    <label className="label" htmlFor="message">
+                      Tell Something about this services
+                    </label>
+                    <textarea
+                      name="msg"
+                      id="msg"
+                      cols="30"
+                      rows="4"
+                      placeholder="Tell something !"
+                    ></textarea>
+                  </div>
+                  <div className="form_group">
+                    <label htmlFor="pic">Upload Service Picture</label>
+                    <label htmlFor="file" className="upload">
+                      <img src={upload} alt="upload" />
+                    </label>
+                    <input
+                      // onChange={onUpload}
+                      type="file"
+                      id="pic"
+                      name="pic"
+                    />
+                  </div>
+                  <div className="form_group">
+                    <label className="label" htmlFor="price">
+                      Price for this Services
+                    </label>
+                    <input
+                      type="number"
+                      id="price"
+                      name="price"
+                      placeholder="Eg: 3000"
+                    />
+                  </div>
+                  <div className="form_group">
+                    <label className="label" htmlFor="enquiry">
+                      For Get More Detail
+                    </label>
+                    <input
+                      type="number"
+                      id="enquiry"
+                      name="enquiry"
+                      placeholder="Eg: 8825457794"
+                    />
+                  </div>
+
+                  <div className="form_submit">
+                    <button type="submit">Update</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div className="box_left_payment_form_session">
+              <div
+                className="form_title"
+                onClick={() => {
+                  setPaymentFormShow(!paymentFormShow),
+                  setGalleryFormShow(false),
+                    setHomeFormShow(false),
+                    setAboutFormShow(false),
+                    setServicesFormShow(false);
+                }}
+              >
+                <h5>Payment Form Session</h5>
+                {paymentFormShow ? (
+                  <img
+                    width="64"
+                    height="64"
+                    src="https://img.icons8.com/arcade/64/down-squared.png"
+                    alt="down-squared"
+                  />
+                ) : (
+                  <img
+                    width="64"
+                    height="64"
+                    src="https://img.icons8.com/arcade/64/right-squared.png"
+                    alt="right-squared"
+                  />
+                )}
+              </div>
+
+              <div
+                className="payment_form"
+                id={paymentFormShow ? "paymentFormShow" : "paymentFormHide"}
+              >
+                <form>
+                  <div className="profile_heading">Add Payment Details</div>
+                  <div className="social_media_input">
+                    <div className="form_group">
+                      <label className="label" htmlFor="phonepay">
+                        Phone Pay Number
+                      </label>
+                      <input
+                        type="number"
+                        id="phonepay"
+                        name="phonepay"
+                        placeholder="Eg : +91 8825457794"
+                      />
+                    </div>
+
+                    <div className="form_group">
+                      <label className="label" htmlFor="gpay">
+                        Google Pay Number
+                      </label>
+                      <input
+                        type="number"
+                        id="gpay"
+                        name="gpay"
+                        placeholder="Eg : +91 8825457794"
+                      />
+                    </div>
+                  </div>
+                  <div className="profile_heading">Add Bank Details</div>
+                  <div className="social_media_input">
+                    <div className="form_group">
+                      <label className="label" htmlFor="bankName">
+                        Bank Name
+                      </label>
+                      <input
+                        type="text"
+                        id="bankName"
+                        name="bankName"
+                        placeholder="Eg : State Bank Of India"
+                      />
+                    </div>
+
+                    <div className="form_group">
+                      <label className="label" htmlFor="ifsc">
+                        IFSC Code
+                      </label>
+                      <input type="text" id="ifsc" name="ifsc" />
+                    </div>
+                    <div className="form_group">
+                      <label className="label" htmlFor="customerName">
+                        Customer Name
+                      </label>
+                      <input
+                        type="text"
+                        id="customerName"
+                        name="customerName"
+                      />
+                    </div>
+                    <div className="form_group">
+                      <label className="label" htmlFor="accountNumber">
+                        Account Number
+                      </label>
+                      <input
+                        type="number"
+                        id="accountNumber"
+                        name="accountNumber"
+                      />
+                    </div>
+                    <div className="form_group">
+                    <label className="label" htmlFor="accountType">
+                      Account Type
+                    </label>
+                    <input
+                      type="text"
+                      id="accountType"
+                      name="accountType"
+                      placeholder="Eg : Savings , Current"
+                    />
+                  </div>
+            
+                  </div>
+                  <div className="form_submit">
+                  <button type="submit">Update</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div className="box_left_gallery_form_session">
+            <div
+              className="form_title"
+              onClick={() => {
+                setGalleryFormShow(!galleryFormShow)
+                setServicesFormShow(false),
+                  setHomeFormShow(false),
+                  setAboutFormShow(false),
+                  setPaymentFormShow(false);
+              }}
+            >
+              <h5>Gallery Form Session</h5>
+              {galleryFormShow ? (
+                <img
+                  width="64"
+                  height="64"
+                  src="https://img.icons8.com/arcade/64/down-squared.png"
+                  alt="down-squared"
+                />
+              ) : (
+                <img
+                  width="64"
+                  height="64"
+                  src="https://img.icons8.com/arcade/64/right-squared.png"
+                  alt="right-squared"
+                />
+              )}
+            </div>
+
+            <div
+              className="home_form"
+              id={galleryFormShow ? "galleryFormShow" : "galleryFormHide"}
+            >
+              <form>
+                <div className="profile_heading">Create Your Gallery</div>
+                <div className="form_group">
+                  <label htmlFor="pic">Choose Your Picture</label>
+                  <label htmlFor="file" className="upload">
+                    <img src={upload} alt="upload" />
+                  </label>
+                  <input
+                    // onChange={onUpload}
+                    type="file"
+                    id="pic"
+                    name="pic"
+                  />
+                </div>
+                <div className="form_submit">
+                  <button type="submit">Upload</button>
+                </div>
+              </form>
+            </div>
+          </div>
           </div>
 
           <div className="box_right">
