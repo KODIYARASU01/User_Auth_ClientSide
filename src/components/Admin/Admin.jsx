@@ -51,7 +51,7 @@ const Admin = () => {
   let [value, setValue] = useState("");
   //Profile
   let [state, setState] = useState(0);
-  let [profile, setProfile] = useState();
+  let [brandLogo, setBrandLogo] = useState();
   let [companyName, setCompanyName] = useState();
   let [authorName, setAuthorName] = useState();
 
@@ -114,8 +114,7 @@ const Admin = () => {
   //Formik does not support file upload so we could create handler :
   const onUpload = async (e) => {
     let base64 = await convertToBase(e.target.files[0]);
-
-    setProfile(base64);
+    setBrandLogo(base64);
   };
 
   // logout handler function
@@ -909,7 +908,7 @@ const Admin = () => {
                     </p>
                   </div>
                   <div className="profile_pic">
-                    <img src={profile || avator} alt=" Profile" />
+                    <img src={brandLogo || avator} alt=" Profile" />
                   </div>
                   <div className="company_name">
                     <h4>{companyName || "Company Name"}</h4>
