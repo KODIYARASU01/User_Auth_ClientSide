@@ -14,6 +14,9 @@ import avator from "/src/assets/profile.png";
 import company from "/src/assets/aristostech.jpg";
 import { motion as m } from "framer-motion";
 
+import ReactQuill from "react-quill";
+import "react-quill/dist/quill.snow.css";
+
 import upload from "/src/assets/upload (2).gif";
 import pic1 from "/src/assets/gallery/1.png";
 import pic2 from "/src/assets/gallery/2.png";
@@ -30,21 +33,22 @@ let animation_profile = {
   hide: { x: 400, opacity: 0, transition: { duration: 1 } },
   show: { x: 0, opacity: 1, transition: { duration: 1, type: "spring" } },
 };
-//Array of values:
-let Our_Special = [
-  "Complete client satisfaction.",
-  "Ethical business policies.",
-  "Live In Touch With Our Customers.",
-  "Transparent dealings.",
-  "Wide connectivity.",
-  "We listen,We understand, We provide Solution.",
-  "A great experience with Happy clients.",
-];
-
 //Gallery array:
 
 let gallerys = [pic1, pic2, pic3, pic4];
+
+const modules = {
+  toolbar: [
+    [{ header: [1, 2, 3, 4, 5, 6, false] }],
+    [{ color: [] }, { background: [] }], 
+    [{ list: "ordered" }, { list: "bullet" }],
+    ["bold", "italic", "underline", "strike",],
+    ["link", "image", "video"],
+
+  ],
+};
 const Admin = () => {
+  let [value, setValue] = useState("");
   //Profile
   let [state, setState] = useState(0);
   let [profile, setProfile] = useState();
@@ -56,11 +60,16 @@ const Admin = () => {
   let [whatsup, setWhatsup] = useState();
   let [location, setLocation] = useState();
   let [mail, setMail] = useState();
-  //Address
+  //Address link
   let [address, setAddess] = useState();
-  let [email, setEmail] = useState();
+  let [companyEmail, setCompanyEmail] = useState();
   let [websiteLink, setWebsiteLink] = useState();
   let [phoneNumber, setPhoneNumber] = useState();
+
+  //About Us:
+  let [category,setCategory]=useState();
+  let[yearOfEst,setYearOfEst]=useState();
+  let [bussiness,setBussiness]=useState();
 
   //Show & Hide Profile:
   let [show, setShow] = useState(true);
@@ -153,7 +162,7 @@ const Admin = () => {
             animate="show"
           >
             <m.div className="back_btn">
-              <Link to="/">
+              <Link to="/admin">
                 <img
                   width="64"
                   height="64"
@@ -328,7 +337,7 @@ const Admin = () => {
                 className="form_title"
                 onClick={() => {
                   setHomeFormShow(!homeFormShow),
-                  setGalleryFormShow(false),
+                    setGalleryFormShow(false),
                     setAboutFormShow(false),
                     setServicesFormShow(false),
                     setPaymentFormShow(false);
@@ -373,13 +382,25 @@ const Admin = () => {
                     <label className="label" htmlFor="company">
                       Company Name
                     </label>
-                    <input type="text" id="company" name="company" />
+                    <input
+                      value={companyName}
+                      onChange={(e) => setCompanyName(e.target.value)}
+                      type="text"
+                      id="company"
+                      name="company"
+                    />
                   </div>
                   <div className="form_group">
                     <label className="label" htmlFor="name">
                       Propertier Name
                     </label>
-                    <input type="text" id="name" name="name" />
+                    <input
+                      value={authorName}
+                      onChange={(e) => setAuthorName(e.target.value)}
+                      type="text"
+                      id="name"
+                      name="name"
+                    />
                   </div>
                   <div className="social_media_heading">Add Social Media</div>
                   <div className="social_media_input">
@@ -388,6 +409,8 @@ const Admin = () => {
                         Phone Number
                       </label>
                       <input
+                        value={mobile}
+                        onChange={(e) => setMobile(e.target.value)}
                         type="number"
                         id="phone"
                         name="phone"
@@ -401,6 +424,8 @@ const Admin = () => {
                       </label>
                       <input
                         type="number"
+                        value={whatsup}
+                        onChange={(e) => setWhatsup(e.target.value)}
                         id="whatsup"
                         name="whatsup"
                         placeholder="Eg : 8825457794"
@@ -411,6 +436,8 @@ const Admin = () => {
                         Company Location link
                       </label>
                       <input
+                        value={location}
+                        onChange={(e) => setLocation(e.target.value)}
                         type="text"
                         id="direction"
                         name="direction"
@@ -422,6 +449,8 @@ const Admin = () => {
                         Company Mail Address
                       </label>
                       <input
+                        value={mail}
+                        onChange={(e) => setMail(e.target.value)}
                         type="email"
                         id="company_mail"
                         name="company_mail"
@@ -438,6 +467,8 @@ const Admin = () => {
                       Company Location
                     </label>
                     <input
+                      value={address}
+                      onChange={(e) => setAddess(e.target.value)}
                       type="text"
                       id="company_loction"
                       name="company_loction"
@@ -448,6 +479,8 @@ const Admin = () => {
                       Company Email ID
                     </label>
                     <input
+                      value={companyEmail}
+                      onChange={(e) => setCompanyEmail(e.target.value)}
                       type="email"
                       id="company_email"
                       name="company_email"
@@ -458,6 +491,8 @@ const Admin = () => {
                       Company Website Link
                     </label>
                     <input
+                      value={websiteLink}
+                      onChange={(e) => setWebsiteLink(e.target.value)}
                       type="text"
                       id="company_website"
                       name="company_website"
@@ -468,10 +503,15 @@ const Admin = () => {
                       Company Phone Number
                     </label>
                     <input
+                      value={phoneNumber}
+                      onChange={(e) => setPhoneNumber(e.target.value)}
                       type="tel"
                       id="company_number"
                       name="company_number"
                     />
+                  </div>
+                  <div className="form_submit">
+                    <button type="submit">Update</button>
                   </div>
                 </form>
               </div>
@@ -481,7 +521,7 @@ const Admin = () => {
                 className="form_title"
                 onClick={() => {
                   setAboutFormShow(!aboutFormShow),
-                  setGalleryFormShow(false),
+                    setGalleryFormShow(false),
                     setHomeFormShow(false),
                     setServicesFormShow(false),
                     setPaymentFormShow(false);
@@ -512,20 +552,16 @@ const Admin = () => {
                 <form>
                   <div className="profile_heading">About Us</div>
                   <div className="form_group">
-                    <label className="label" htmlFor="company">
-                      Company Name
-                    </label>
-                    <input type="text" id="company" name="company" />
-                  </div>
-                  <div className="form_group">
                     <label className="label" htmlFor="category">
                       Category
                     </label>
                     <input
+                    value={category}
+                    onChange={(e)=>setCategory(e.target.value)}
                       type="text"
                       id="category"
                       name="category"
-                      placeholder="Eg:Hardware Store"
+                      placeholder="Eg:Information Technology"
                     />
                   </div>
                   <div className="form_group">
@@ -533,6 +569,8 @@ const Admin = () => {
                       Year Of Estimated
                     </label>
                     <input
+                    value={yearOfEst}
+                    onChange={(e)=>setYearOfEst(e.target.value)}
                       type="text"
                       id="year"
                       name="year"
@@ -544,6 +582,8 @@ const Admin = () => {
                       Nature Of Bussiness
                     </label>
                     <input
+                    value={bussiness}
+                    onChange={(e)=>setBussiness(e.target.value)}
                       type="text"
                       id="bussiness"
                       name="bussiness"
@@ -554,52 +594,16 @@ const Admin = () => {
                     Our Specialities
                   </div>
 
-                  <div className="our_specialities">
-                    <div className="form_group">
-                      <input
-                        className="input"
-                        type="text"
-                        name="list1"
-                        id="list1"
-                        placeholder="eg:Complete client satisfaction."
-                      />
-                    </div>
-                    <div className="form_group">
-                      <input
-                        className="input"
-                        type="text"
-                        name="list2"
-                        id="list2"
-                        placeholder="eg:Ethical business policies.."
-                      />
-                    </div>
-                    <div className="form_group">
-                      <input
-                        className="input"
-                        type="text"
-                        name="list3"
-                        id="list3"
-                        placeholder="eg:Live In Touch With Our Customers.."
-                      />
-                    </div>
-                    <div className="form_group">
-                      <input
-                        className="input"
-                        type="text"
-                        name="list4"
-                        id="list4"
-                        placeholder="eg:Transparent dealings."
-                      />
-                    </div>
-                    <div className="form_group">
-                      <input
-                        className="input"
-                        type="text"
-                        name="list5"
-                        id="list5"
-                        placeholder="eg:We listen,We understand, We provide Solution."
-                      />
-                    </div>
+                  <ReactQuill
+                    theme="snow"
+                    value={value}
+                    onChange={setValue}
+                    className="text_editor"
+                    modules={modules}
+                  />
+
+                  <div className="form_submit">
+                    <button type="submit">Update</button>
                   </div>
                 </form>
               </div>
@@ -609,7 +613,7 @@ const Admin = () => {
                 className="form_title"
                 onClick={() => {
                   setServicesFormShow(!servicesFormShow),
-                  setGalleryFormShow(false),
+                    setGalleryFormShow(false),
                     setHomeFormShow(false),
                     setAboutFormShow(false),
                     setPaymentFormShow(false);
@@ -703,7 +707,7 @@ const Admin = () => {
                 className="form_title"
                 onClick={() => {
                   setPaymentFormShow(!paymentFormShow),
-                  setGalleryFormShow(false),
+                    setGalleryFormShow(false),
                     setHomeFormShow(false),
                     setAboutFormShow(false),
                     setServicesFormShow(false);
@@ -799,77 +803,76 @@ const Admin = () => {
                       />
                     </div>
                     <div className="form_group">
-                    <label className="label" htmlFor="accountType">
-                      Account Type
-                    </label>
-                    <input
-                      type="text"
-                      id="accountType"
-                      name="accountType"
-                      placeholder="Eg : Savings , Current"
-                    />
-                  </div>
-            
+                      <label className="label" htmlFor="accountType">
+                        Account Type
+                      </label>
+                      <input
+                        type="text"
+                        id="accountType"
+                        name="accountType"
+                        placeholder="Eg : Savings , Current"
+                      />
+                    </div>
                   </div>
                   <div className="form_submit">
-                  <button type="submit">Update</button>
+                    <button type="submit">Update</button>
                   </div>
                 </form>
               </div>
             </div>
             <div className="box_left_gallery_form_session">
-            <div
-              className="form_title"
-              onClick={() => {
-                setGalleryFormShow(!galleryFormShow)
-                setServicesFormShow(false),
-                  setHomeFormShow(false),
-                  setAboutFormShow(false),
-                  setPaymentFormShow(false);
-              }}
-            >
-              <h5>Gallery Form Session</h5>
-              {galleryFormShow ? (
-                <img
-                  width="64"
-                  height="64"
-                  src="https://img.icons8.com/arcade/64/down-squared.png"
-                  alt="down-squared"
-                />
-              ) : (
-                <img
-                  width="64"
-                  height="64"
-                  src="https://img.icons8.com/arcade/64/right-squared.png"
-                  alt="right-squared"
-                />
-              )}
-            </div>
-
-            <div
-              className="home_form"
-              id={galleryFormShow ? "galleryFormShow" : "galleryFormHide"}
-            >
-              <form>
-                <div className="profile_heading">Create Your Gallery</div>
-                <div className="form_group">
-                  <label htmlFor="pic">Choose Your Picture</label>
-                  <label htmlFor="file" className="upload">
-                    <img src={upload} alt="upload" />
-                  </label>
-                  <input
-                    // onChange={onUpload}
-                    type="file"
-                    id="pic"
-                    name="pic"
+              <div
+                className="form_title"
+                onClick={() => {
+                  setGalleryFormShow(!galleryFormShow);
+                  setServicesFormShow(false),
+                    setHomeFormShow(false),
+                    setAboutFormShow(false),
+                    setPaymentFormShow(false);
+                }}
+              >
+                <h5>Gallery Form Session</h5>
+                {galleryFormShow ? (
+                  <img
+                    width="64"
+                    height="64"
+                    src="https://img.icons8.com/arcade/64/down-squared.png"
+                    alt="down-squared"
                   />
-                </div>
-                <div className="form_submit">
-                  <button type="submit">Upload</button>
-                </div>
-              </form>
+                ) : (
+                  <img
+                    width="64"
+                    height="64"
+                    src="https://img.icons8.com/arcade/64/right-squared.png"
+                    alt="right-squared"
+                  />
+                )}
+              </div>
+
+              <div
+                className="home_form"
+                id={galleryFormShow ? "galleryFormShow" : "galleryFormHide"}
+              >
+                <form>
+                  <div className="profile_heading">Create Your Gallery</div>
+                  <div className="form_group">
+                    <label htmlFor="pic">Choose Your Picture</label>
+                    <label htmlFor="file" className="upload">
+                      <img src={upload} alt="upload" />
+                    </label>
+                    <input
+                      // onChange={onUpload}
+                      type="file"
+                      id="pic"
+                      name="pic"
+                    />
+                  </div>
+                  <div className="form_submit">
+                    <button type="submit">Upload</button>
+                  </div>
+                </form>
+              </div>
             </div>
-          </div>
           </div>
 
           <div className="box_right">
@@ -906,21 +909,22 @@ const Admin = () => {
                     </p>
                   </div>
                   <div className="profile_pic">
-                    <img src={profile} alt=" Profile" />
+                    <img src={profile || avator} alt=" Profile" />
                   </div>
                   <div className="company_name">
-                    <h4>AristosTech India Pvt Ltd</h4>
+                    <h4>{companyName || "Company Name"}</h4>
                   </div>
                   <div className="owner_name">
                     <p>
-                      K.Jayakumar <span>(Propertier)</span>
+                      {authorName || ""}
+                      <span>(Propertier)</span>
                     </p>
                   </div>
                   <div className="be_touch">
                     <p>Let's talk and visit us :</p>
 
                     <div className="actions">
-                      <a href="tel:+91 8825457794">
+                      <a href={`tel:+91 ${mobile}`}>
                         <img
                           width="64"
                           height="64"
@@ -929,7 +933,10 @@ const Admin = () => {
                         />
                         <p>Call</p>
                       </a>
-                      <Link to="/">
+                      <a
+                        href={`https://api.whatsapp.com/send?phone=+91 ${mobile}&text=Hi%2C%20There!`}
+                        target="_blank"
+                      >
                         <img
                           width="48"
                           height="48"
@@ -937,8 +944,8 @@ const Admin = () => {
                           alt="whatsapp--v1"
                         />
                         <p>WhatsUp</p>
-                      </Link>
-                      <Link to="/">
+                      </a>
+                      <a href={location} target="_blank">
                         <img
                           width="64"
                           height="64"
@@ -946,9 +953,9 @@ const Admin = () => {
                           alt="south-direction"
                         />
                         <p>Direction</p>
-                      </Link>
+                      </a>
 
-                      <Link to="/">
+                      <a href={`mailto:${mail}`}>
                         <img
                           width="64"
                           height="64"
@@ -956,7 +963,7 @@ const Admin = () => {
                           alt="new-post--v2"
                         />
                         <p>Mail</p>
-                      </Link>
+                      </a>
                     </div>
                   </div>
                   <div className="address_details">
@@ -967,11 +974,7 @@ const Admin = () => {
                         src="https://img.icons8.com/3d-fluency/94/location.png"
                         alt="location"
                       />
-                      <p>
-                        ARISTOS TECH ANKUR PLAZA Shop No - 43, First floor,
-                        No-113,(Old 52), G. N CHETTY ROAD, T. Nagar,
-                        CHENNAI-600017
-                      </p>
+                      <p>{address || "Comapany Address"}</p>
                     </div>
                     <div className="mail">
                       <img
@@ -980,7 +983,7 @@ const Admin = () => {
                         src="https://img.icons8.com/color/48/filled-message.png"
                         alt="filled-message"
                       />
-                      <p>support@aristostech.in</p>
+                      <p>{companyEmail || "Company Email ID"}</p>
                     </div>
                     <div className="site">
                       <img
@@ -989,7 +992,7 @@ const Admin = () => {
                         src="https://img.icons8.com/fluency/48/domain.png"
                         alt="domain"
                       />
-                      <p>https://aristostech.in</p>
+                      <p>{websiteLink || "Website Link"}</p>
                     </div>
                     <div className="contact">
                       <img
@@ -998,7 +1001,7 @@ const Admin = () => {
                         src="https://img.icons8.com/fluency/48/contact-card.png"
                         alt="contact-card"
                       />
-                      <p>(+91)93444 82370</p>
+                      <p>{`(+91) ${phoneNumber}`}</p>
                     </div>
                   </div>
                 </div>
@@ -1022,7 +1025,7 @@ const Admin = () => {
                         src="https://img.icons8.com/pieces/64/experimental-arrow-pieces.png"
                         alt="experimental-arrow-pieces"
                       />
-                      <p>AristosTech India Pvt Ltd</p>
+                      <p>{companyName}</p>
                     </div>
                     <div className="category">
                       <h6>Category </h6>
@@ -1032,7 +1035,7 @@ const Admin = () => {
                         src="https://img.icons8.com/pieces/64/experimental-arrow-pieces.png"
                         alt="experimental-arrow-pieces"
                       />
-                      <p>Information Technology</p>
+                      <p>{category}</p>
                     </div>
                     <div className="year">
                       <h6>Year of Est </h6>
@@ -1042,7 +1045,7 @@ const Admin = () => {
                         src="https://img.icons8.com/pieces/64/experimental-arrow-pieces.png"
                         alt="experimental-arrow-pieces"
                       />
-                      <p>2021</p>
+                      <p>{yearOfEst}</p>
                     </div>
                     <div className="bussiness">
                       <h6>Nature of Business</h6>
@@ -1053,8 +1056,7 @@ const Admin = () => {
                         alt="experimental-arrow-pieces"
                       />
                       <p>
-                        Web Dev Project,FullStack Dev Project,E-commerse
-                        Website,Wordpress Website etc...
+                       {bussiness}
                       </p>
                     </div>
                   </div>
@@ -1068,18 +1070,11 @@ const Admin = () => {
                         alt="external-fundraiser-event-management-flaticons-lineal-color-flat-icons-3"
                       />
                     </div>
-                    <div className="content">
-                      <ul>
-                        {Our_Special.map((list, index) => {
-                          return (
-                            <div className="list" key={index}>
-                              <img src={tick} alt="tick" />
-                              <li>{list}</li>
-                            </div>
-                          );
-                        })}
-                      </ul>
-                    </div>
+
+                    <div
+                      className="content"
+                      dangerouslySetInnerHTML={{ __html: value }}
+                    />
                   </div>
                 </div>
                 {/* Product page */}

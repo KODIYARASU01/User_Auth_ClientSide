@@ -56,7 +56,7 @@ export default function Register() {
       </div>
       <div className="user_box">
         <div className="back_btn">
-          <Link to="/">
+          <Link to="/admin">
             <img
               width="64"
               height="64"
